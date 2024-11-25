@@ -29,6 +29,13 @@
 				<button>
 					<a href={{path("app_category")}}>Catégories</a>
 				</button>
+				{% if app.user %}
+					<div class="mb-3">
+						You are logged in as
+						{{ app.user.userIdentifier }},
+						<a href="{{ path('app_logout') }}">Logout</a>
+					</div>
+				{% endif %}
 			</nav>
 			{% block content %}{% endblock %}
 		</main>
