@@ -16,10 +16,10 @@ class CategoryType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('product', EntityType::class, [
-                'class' => Product::class,
-                'choice_label' => 'id',
-            ])
+            // ->add('product', EntityType::class, [
+            //     'class' => Product::class,
+            //     'choice_label' => 'id',
+            // ])
         ;
     }
 
