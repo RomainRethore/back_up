@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete
+{% endblock %}
+
+{% block content %}
+	<div>
+		<p>Êtes-vous certains de vouloir supprimer le produit
+			{{product.name}}
+			?</p>
+		<button>
+			<a href="{{path('app_product_delete',parameters={id:product.id,action:'confirm'} ,relative=true)}}">OUI</a>
+		</button>
+		<button>
+			<a href="{{path('app_products' ,relative=true)}}">NON</a>
+		</button>
+	</div>
+{% endblock %}

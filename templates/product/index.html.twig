@@ -20,15 +20,31 @@
 	<div class="example-wrapper">
 		<h1>Hello
 			{{ controller_name }}! ✅</h1>
+		{% if app.user %}
+			<button>
+				<a href={{path("app_product_new")}}>Ajouter un produit</a>
+			</button>
+		{% endif %}
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>/Applications/MAMP/htdocs/BackUp/src/Controller/ProductController.php</code>
-			</li>
-			<li>Your template at
-				<code>/Applications/MAMP/htdocs/BackUp/templates/product/index.html.twig</code>
-			</li>
-		</ul>
+		{% for product in products %}
+			<div>
+				<h2>{{product.name}}</h2>
+				<p>{{product.description}}</p>
+				<p>{{product.price}}
+					$$</p>
+				<p>État :
+					{{product.state}}</p>
+				{% if app.user %}
+					<button>
+						<a href="{{path('app_product_update',parameters={id:product.id} ,relative=true)}}">Modifier</a>
+					</button>
+					<button>
+						<a href="{{path('app_product_delete',parameters={id:product.id,action:'ask'} ,relative=true)}}">Supprimer</a>
+					</button>
+
+				{% endif %}
+
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}
